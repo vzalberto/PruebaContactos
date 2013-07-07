@@ -22,7 +22,6 @@ public class MainActivity extends Activity {
 
 	
 	
-	@SuppressWarnings("deprecation")
 	private void Consulta()
 	{
 		//Creamos un objeto de tipo Uri con el content provider que vamos a utilizar en este caso para obtener información a cerca de los contactos
@@ -41,13 +40,13 @@ public class MainActivity extends Activity {
  
         //Consulta para este registro
         //managedQuery es un método de la clase Activity
-        Cursor cursorIdNombre = managedQuery( uriContactos,
+        Cursor cursorIdNombre = getContentResolver().query(uriContactos,
                 idNombre, //Nombre de la columna que va a devolver, en este caso hemos creado anteriormente el array de nombre de columnas.
                 null, // Cláusula where
                 null, // Argumentos de selección
                 null); // Orden del conenido.
  
-        Cursor cursorNumeroTelefono = managedQuery(uriTelefonos,
+        Cursor cursorNumeroTelefono = getContentResolver().query(uriTelefonos,
                     numeroTelefono,
                     null,
                     null,
